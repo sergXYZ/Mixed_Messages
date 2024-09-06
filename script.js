@@ -40,7 +40,8 @@ const usefulActivity = {
         'read an article or watch a video about equity investing',
         'read an article or watch a video about finacial news or finacial analysis',
     ],
-    message1: function () {
+    // Creating workout idea
+    workoutIdeaMeth: function () { 
         let exercise1 = this.sport.legs[Math.floor(Math.random() * this.sport.legs.length)];
         let exercise2 = this.sport.pushExer[Math.floor(Math.random() * this.sport.pushExer.
             length)];
@@ -48,44 +49,67 @@ const usefulActivity = {
                 length)];
         let exercise4 = this.sport.additionalExer[Math.floor(Math.random() * this.sport.additionalExer.
                     length)];
-
-        console.log(`Your workout exercises for today are: ${exercise1}, ${exercise2}, ${exercise3} and ${exercise4}.`)
+         return (`Your workout exercises for today are: ${exercise1}, ${exercise2}, ${exercise3} and ${exercise4}.`)
     },
-    message2: function () {
+    // Creating recreational idea
+    recreationalIdeaMeth: function () {
         let recrIdea = this.recreational[Math.floor(Math.random() * this.recreational.length)];
-        console.log(`You can ${recrIdea}.`);
+        return (`You can ${recrIdea}.`);
     },
-    message3: function () {
+    // Creating educational idea
+    educationalIdeaMeth: function () {
         let eduIdea = this.educational[Math.floor(Math.random() * this.educational.length)];
-        console.log(`You can ${eduIdea}.`);
+        return (`You can ${eduIdea}.`);
     },
-    goodLuck: function () {
-        console.log('  ggg       ooo       ooo     dddd');
-        console.log(' g   g     o   o     o   o    d   d');
-        console.log('g         o     o   o     o   d    d');
-        console.log('g   gg    o     o   o     o   d    d');
-        console.log('g  g  g   o     o   o     o   d    d');
-        console.log(' g   g     o   o     o   o    d   d');
-        console.log('  ggg       ooo       ooo     dddd');
-        console.log('  ');
-        console.log('l         u     u     ccc     k   k');
-        console.log('l         u     u    c   c    k  k');
-        console.log('l         u     u   c         k k  ');
-        console.log('l         u     u   c         kk  ');
-        console.log('l         u     u   c         k k  ');
-        console.log('l     l    u   u     c   c    k  k  ');
-        console.log('lllllll     uuu       ccc     k   k');
+    // Creating ASCII Art
+    goodLuckMeth: function () {
+        let goodLuckArr = [
+            '  ggg       ooo       ooo     dddd',
+            ' g   g     o   o     o   o    d   d',
+            'g         o     o   o     o   d    d',
+            'g   gg    o     o   o     o   d    d',
+            'g  g  g   o     o   o     o   d    d',
+            ' g   g     o   o     o   o    d   d',
+            '  ggg       ooo       ooo     dddd',
+            '  ',
+            'l         u     u     ccc     k   k',
+            'l         u     u    c   c    k  k',
+            'l         u     u   c         k k  ',
+            'l         u     u   c         kk  ',
+            'l         u     u   c         k k  ',
+            'l     l    u   u     c   c    k  k  ',
+            'lllllll     uuu       ccc     k   k',
+        ];
+        goodLuckArr.forEach( function (i) {
+            console.log(i);
+        })
+        
     },
 
-    mixedMessages: function () {
-        this.message1();
-        this.message2();
-        this.message3();
-        this.goodLuck();
-    }
+    mixedMessagesArr: function () {
+        let mixedArr = [];
+        mixedArr.push(this.workoutIdeaMeth());
+        mixedArr.push(this.recreationalIdeaMeth());
+        mixedArr.push(this.educationalIdeaMeth());
+        return mixedArr;
+    },
     
-}
+    
+};
 
-usefulActivity.mixedMessages();
+const getWorkoutIdea = usefulActivity.workoutIdeaMeth();
+const getRecreationalIdea = usefulActivity.recreationalIdeaMeth();
+const getEducetionalIdea = usefulActivity.educationalIdeaMeth();
+const goodLuck = usefulActivity.goodLuckMeth;
 
+const mixedMessagesAsArray = usefulActivity.mixedMessagesArr();// As Array
+
+const mixedMessages = function () { //As a function
+    console.log(usefulActivity.workoutIdeaMeth());
+    console.log(usefulActivity.recreationalIdeaMeth());
+    console.log(usefulActivity.educationalIdeaMeth());
+    usefulActivity.goodLuckMeth();
+};
+
+mixedMessages();
 
